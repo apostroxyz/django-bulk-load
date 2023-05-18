@@ -73,6 +73,8 @@ def models_to_tsv_buffer(
                 row.append(NULL_CHARACTER)
             elif isinstance(field_val, Json):
                 row.append(field_val.dumps(field_val.adapted))
+            elif isinstance(field_val, list):
+                row.append("{" + ",".join(map(str, field_val)) + "}")
             else:
                 row.append(str(field_val))
         tsv_writer.writerow(row)
