@@ -33,6 +33,7 @@ from .queries import (
 from .utils import generate_table_name
 
 logger = logging.getLogger(__name__)
+logger.info = logger.debug
 
 
 def create_temp_table_and_load(
